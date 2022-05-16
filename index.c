@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
 		char buffer[128];
 
 		// armazena a tabela por linhas | matriz[linha][coluna]
+		// as 4 colunas de cada linha são [idProcesso][tempoChegada][tempoRajada][prioridadeProcesso]
 		int matriz[20][4];
 		int linha = 0;
 		int coluna = 0;
