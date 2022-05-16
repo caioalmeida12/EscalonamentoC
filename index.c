@@ -16,59 +16,34 @@ int main(int argc, char *argv[])
 
 		char buffer[128];
 
-		// armazena a tabela por linhas | matrix[linhas][colunas]
-		char matrix[20][4];
-
+		// armazena a tabela por linhas | matriz[linha][coluna]
+		int matriz[20][4];
 		int linha = 0;
 		int coluna = 0;
 
-		while (fgets(buffer,
-					 128, fp))
+		while (fgets(buffer, 128, fp))
 		{
-			coluna = 0;
 			linha++;
+			coluna = 0;
 
 			// pula a primeira linha da tabela, para evitar printar o nome das colunas
 			// if (linha == 1)
 			// continue;
 
 			// reparte as informações a cada virgula
-			char *value = strtok(buffer, ", ");
+			char *valor = strtok(buffer, ", ");
 
-			matrix[linha]
-				// recebe os tokens e organiza em grupos de 4, para representar cada processo
-
-				// while (value) {
-				// 	// coluna 1
-				// 	if (coluna == 0) {
-				// 		printf("ID :");
-				// 	}
-
-				// 	// coluna 2
-				// 	if (coluna == 1) {
-				// 		printf("\tChegada. :");
-				// 	}
-
-				// 	// coluna 3
-				// 	if (coluna == 2) {
-				// 		printf("\tRajada :");
-				// 	}
-
-				// // coluna 4
-				// 	if (coluna == 3) {
-				// 		printf("\tPrioridade :");
-				// 	}
-
-				// 	printf("%s", value);
-				// 	value = strtok(NULL, ", ");
-				// 	coluna++;
-				// }
-
-				printf("\n");
+			// recebe os tokens e organiza em linhas de 4 colunas, para representar cada processo
+			while (valor)
+			{
+				matriz[linha][coluna] = valor;
+				valor = strtok(NULL, ", ");
+				coluna++;
+			}
 		}
 
 		// fecha o arquivo
 		fclose(fp);
+		return 0;
 	}
-	return 0;
 }
